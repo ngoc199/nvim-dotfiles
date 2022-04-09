@@ -1,6 +1,18 @@
 " GENERAL SETTINGS
-set number		" Show current line number
-set relativenumber	" Show relative line numbers
+set number						                        " Show current line number
+set relativenumber					                    " Show relative line numbers
+set mouse=a 						                    " Enable mouse scrolling
+set tabstop=4 softtabstop=4 shiftwidth=4 autoindent	    " Tab width
+set expandtab smarttab					                " Tab key actions
+set incsearch ignorecase smartcase hlsearch		        " Hightlight text while searching
+set wrap breakindent                                    " Wrap long lines to the width set by tw
+set encoding=utf-8                                      " Text encoding
+set title                                               " Tab title as file name
+set conceallevel=2                                      " Set this so we won't break indenation plugin
+set tw=90                                               " Auto wrap lines that are longer than that
+set emoji                                               " Enable emojis
+set history=1000                                        " History limit
+set showtabline=0                                       " Always show tab line
 
 " PLUGINS
 
@@ -47,10 +59,10 @@ let g:github_colors = {
 \ }
 colorscheme github_dark
 
+" HOTKEYS
+
 " The essentials
-set smartcase
 let mapleader=","
-nnoremap ; :
 nnoremap <leader>r :source %<CR>
 nnoremap <leader>q :bd<CR>
 nnoremap zz :w<CR>

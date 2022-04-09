@@ -33,7 +33,6 @@ Then try to use these hotkeys to make your life easier.
 | Hotkey     | What it does                  | Description                           |
 | ---------- | ----------------------------- | ------------------------------------- |
 | ,          | <leader>                      | Don't need to reach that far          |
-| ;          | :                             | Don't need to press <Shift>           |
 | <leader>r  | :source %<CR>                 | Reload the config files               |
 | <leader>q  | :bd<CR>                       | Delete the buffer                     |
 | zz         | :w<CR>                        | Save file                             |

@@ -30,6 +30,7 @@ call plug#begin()
 " Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
 
 Plug 'cohama/lexima.vim' " Auto close parenthenses
+Plug 'tpope/vim-commentary' " Comment code
 
 if has("nvim") 
 	Plug 'projekt0n/github-nvim-theme' " Theme

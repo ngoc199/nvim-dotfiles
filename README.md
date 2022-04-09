@@ -23,6 +23,7 @@ One more reason I use dark mode.
 | nvim-telescope/telescope-fzf-native.nvim | Fuzzy finder extension for Telescope               |
 | nvim-telescope/telescope.nvim            | Find & Navigate between the files in the project   |
 | kyazdani42/nvim-web-devicons             | Icons pack (require nerd fonts)                    |
+| tpope/vim-commentary                     | Comment code                                       |
 
 ## Hotkeys You Love To Know
 
@@ -48,6 +49,8 @@ Then try to use these hotkeys to make your life easier.
 | <leader>ff | <Cmd>Telescope find_files<CR> | Find files in the project             |
 | <leader>fb | <Cmd>Telescope buffers<CR>    | Find buffers                          |
 | <leader>fh | <Cmd>Telescope help_tags<CR>  | Find help tags                        |
+| gcc        |                               | Comment out a line                    |
+| gcc        |                               | Comment out a target of a motion      |
 
 ## Connect With Me
 

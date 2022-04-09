@@ -118,12 +118,13 @@ require('telescope').setup{
 EOF
 
 " Performance tweaks
+set cursorline
+set nocursorcolumn
 set scrolljump=5
 set lazyredraw
 set redrawtime=10000
 set synmaxcol=180
-set re=1
-set cursorline
+set re=2
 
 " Coc
 

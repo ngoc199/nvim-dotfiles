@@ -159,7 +159,8 @@ let g:coc_global_extensions = [
             \'coc-marketplace',
             \'coc-highlight',
             \'coc-sh',
-	    \'coc-eslint',
+            \'coc-eslint',
+            \'coc-emmet',
             \]
 
 " Coc multi cursor highlight color

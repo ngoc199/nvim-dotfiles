@@ -9,6 +9,8 @@
     "json",
     "markdown",
     "typescript",
+    "javascriptreact",
+    "typescriptreact",
     "python",
     "dart"
   ],

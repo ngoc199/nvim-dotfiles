@@ -24,6 +24,7 @@ One more reason I use dark mode.
 | nvim-telescope/telescope.nvim            | Find & Navigate between the files in the project   |
 | kyazdani42/nvim-web-devicons             | Icons pack (require nerd fonts)                    |
 | tpope/vim-commentary                     | Comment code                                       |
+| editorconfig/editorconfig-vim            | Editor Config                                      |
 
 ## Hotkeys You Love To Know
 

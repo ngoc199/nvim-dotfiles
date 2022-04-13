@@ -52,6 +52,7 @@ Then try to use these hotkeys to make your life easier.
 | <leader>fh | <Cmd>Telescope help_tags<CR>  | Find help tags                        |
 | gcc        |                               | Comment out a line                    |
 | gcc        |                               | Comment out a target of a motion      |
+| <C-]>      | <Plug>(coc-definition)        | Jump to definition                    |
 
 ## Connect With Me
 

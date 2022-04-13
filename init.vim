@@ -167,3 +167,6 @@ let g:coc_global_extensions = [
 
 " Coc multi cursor highlight color
 hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
+
+" Coc hotkeys
+nmap <C-]> <Plug>(coc-definition)

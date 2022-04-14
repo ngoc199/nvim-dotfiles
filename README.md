@@ -53,6 +53,7 @@ Then try to use these hotkeys to make your life easier.
 | gcc        |                               | Comment out a line                    |
 | gcc        |                               | Comment out a target of a motion      |
 | <C-]>      | <Plug>(coc-definition)        | Jump to definition                    |
+| <F3>       | :Explore<CR>                  | Open Netrw                            |
 
 ## Connect With Me
 

@@ -70,6 +70,7 @@ nnoremap <leader>q :bd<CR>
 nnoremap zz :w<CR>
 nnoremap zx :wq<CR>
 nnoremap <leader>e :PlugInstall<CR>
+nnoremap <F3> :Explore<CR>
 
 " New line in normal mode and back
 map <Enter> o<ESC>

@@ -32,6 +32,7 @@ call plug#begin()
 Plug 'cohama/lexima.vim' " Auto close parenthenses
 Plug 'tpope/vim-commentary' " Comment code
 Plug 'editorconfig/editorconfig-vim' " Editor config
+Plug 'github/copilot.vim' " AI pair programmer
 
 if has("nvim") 
 	Plug 'projekt0n/github-nvim-theme' " Theme

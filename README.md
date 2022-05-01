@@ -32,28 +32,29 @@ Too lazy to type the whole things to the commands? Don't want to do repeat task?
 
 Then try to use these hotkeys to make your life easier.
 
-| Hotkey     | What it does                  | Description                           |
-| ---------- | ----------------------------- | ------------------------------------- |
-| ,          | <leader>                      | Don't need to reach that far          |
-| <leader>r  | :source %<CR>                 | Reload the config files               |
-| <leader>q  | :bd<CR>                       | Delete the buffer                     |
-| zz         | :w<CR>                        | Save file                             |
-| zx         | :wq<CR>                       | Save file and quit                    |
-| <leader>e  | :PlugInstall<CR>              | Install Plugins                       |
-| <Enter>    | o<ESC>                        | Enter new line below in `normal` mode |
-| <S-Enter>  | O<ESC>                        | Enter new line above in `normal` mode |
-| [b         | :bprevious<CR>                | Move to previous buffer               |
-| ]b         | :bnext<CR>                    | Move to next buffer                   |
-| [B         | :bfirst<CR>                   | Move to the first buffer              |
-| ]B         | :blast<CR>                    | Move to the last buffer               |
-| <C-hjkl>   | <C-w>hjkl                     | Navigate between splits               |
-| <leader>ff | <Cmd>Telescope find_files<CR> | Find files in the project             |
-| <leader>fb | <Cmd>Telescope buffers<CR>    | Find buffers                          |
-| <leader>fh | <Cmd>Telescope help_tags<CR>  | Find help tags                        |
-| gcc        |                               | Comment out a line                    |
-| gcc        |                               | Comment out a target of a motion      |
-| <C-]>      | <Plug>(coc-definition)        | Jump to definition                    |
-| <F3>       | :Explore<CR>                  | Open Netrw                            |
+| Hotkey     | What it does                  | Description                                 |
+| ---------- | ----------------------------- | ------------------------------------------- |
+| ,          | <leader>                      | Don't need to reach that far                |
+| <leader>r  | :source %<CR>                 | Reload the config files                     |
+| <leader>q  | :bd<CR>                       | Delete the buffer                           |
+| zz         | :w<CR>                        | Save file                                   |
+| zx         | :wq<CR>                       | Save file and quit                          |
+| <leader>e  | :PlugInstall<CR>              | Install Plugins                             |
+| <Enter>    | o<ESC>                        | Enter new line below in `normal` mode       |
+| <S-Enter>  | O<ESC>                        | Enter new line above in `normal` mode       |
+| [b         | :bprevious<CR>                | Move to previous buffer                     |
+| ]b         | :bnext<CR>                    | Move to next buffer                         |
+| [B         | :bfirst<CR>                   | Move to the first buffer                    |
+| ]B         | :blast<CR>                    | Move to the last buffer                     |
+| <C-hjkl>   | <C-w>hjkl                     | Navigate between splits                     |
+| <leader>ff | <Cmd>Telescope find_files<CR> | Find files in the project                   |
+| <leader>fb | <Cmd>Telescope buffers<CR>    | Find buffers                                |
+| <leader>fh | <Cmd>Telescope help_tags<CR>  | Find help tags                              |
+| gcc        |                               | Comment out a line                          |
+| gcc        |                               | Comment out a target of a motion            |
+| <C-]>      | <Plug>(coc-definition)        | Jump to definition                          |
+| <F3>       | :Explore<CR>                  | Open Netrw                                  |
+| <leader>a  | <Plug>(coc-actions)           | Open actions for the current selected range |
 
 ## Connect With Me
 

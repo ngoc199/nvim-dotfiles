@@ -14,6 +14,22 @@ set emoji                                               " Enable emojis
 set history=1000                                        " History limit
 set showtabline=0                                       " Always show tab line
 
+" WSL2 to Windows Clipboard
+if has('wsl')
+    let g:clipboard = {
+                \   'name': 'WslClipboard',
+                \   'copy': {
+                \      '+': 'clip.exe',
+                \      '*': 'clip.exe',
+                \    },
+                \   'paste': {
+                \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+                \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+                \   },
+                \   'cache_enabled': 0,
+                \ }
+endif
+
 " PLUGINS
 
 call plug#begin()

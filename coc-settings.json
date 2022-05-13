@@ -61,7 +61,7 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualTextPrefix": " ❯❯❯ ",
   "diagnostic.virtualText": true,
-  "diagnostic.enableMessage": "never",
+  "diagnostic.enableMessage": "always",
 
   // list settings
   "list.source.grep.command": "rg",

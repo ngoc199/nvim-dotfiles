@@ -6,6 +6,8 @@ set tabstop=4 softtabstop=4 shiftwidth=4 autoindent	    " Tab width
 set expandtab smarttab					                " Tab key actions
 set incsearch ignorecase smartcase hlsearch		        " Hightlight text while searching
 set wrap breakindent                                    " Wrap long lines to the width set by tw
+set linebreak
+set nolist
 set encoding=utf-8                                      " Text encoding
 set title                                               " Tab title as file name
 set conceallevel=2                                      " Set this so we won't break indenation plugin

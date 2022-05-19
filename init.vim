@@ -11,7 +11,7 @@ set nolist
 set encoding=utf-8                                      " Text encoding
 set title                                               " Tab title as file name
 set conceallevel=2                                      " Set this so we won't break indenation plugin
-set tw=90                                               " Auto wrap lines that are longer than that
+set tw=0                                                " Auto wrap lines that are longer than that
 set emoji                                               " Enable emojis
 set history=1000                                        " History limit
 set showtabline=0                                       " Always show tab line
@@ -135,6 +135,11 @@ nnoremap <leader>fh <Cmd>Telescope help_tags<CR>
 lua << EOF
 local actions = require('telescope.actions')
 require('telescope').setup{
+    pickers = {
+        find_files = {
+            hidden = true
+        }
+    },
 	defaults = {
 		mappings = {
 			n = {

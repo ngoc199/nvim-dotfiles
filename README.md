@@ -48,6 +48,7 @@ Then try to use these hotkeys to make your life easier.
 | ]B         | :blast<CR>                    | Move to the last buffer                     |
 | <C-hjkl>   | <C-w>hjkl                     | Navigate between splits                     |
 | <leader>ff | <Cmd>Telescope find_files<CR> | Find files in the project                   |
+| <leader>ff | <Cmd>Telescope find_files<CR> | Search text in the project                  |
 | <leader>fb | <Cmd>Telescope buffers<CR>    | Find buffers                                |
 | <leader>fh | <Cmd>Telescope help_tags<CR>  | Find help tags                              |
 | gcc        |                               | Comment out a line                          |

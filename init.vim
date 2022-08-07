@@ -51,6 +51,7 @@ Plug 'cohama/lexima.vim' " Auto close parenthenses
 Plug 'tpope/vim-commentary' " Comment code
 Plug 'editorconfig/editorconfig-vim' " Editor config
 Plug 'github/copilot.vim' " AI pair programmer
+Plug 'kevinhwang91/nvim-bqf' " Quickfix
 
 if has("nvim") 
 	Plug 'projekt0n/github-nvim-theme' " Theme
@@ -213,10 +214,9 @@ hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
 
 " Coc hotkeys
 nmap <C-]> <Plug>(coc-definition)
-
-" Remap for do codeAction of selected region
-function! s:cocActionsOpenFromSelected(type) abort
-  execute 'CocCommand actions.open ' . a:type
-endfunction
-xmap <silent> <leader>a :<C-u>execute 'CocCommand actions.open ' . visualmode()<CR>
-nmap <silent> <leader>a :<C-u>set operatorfunc=<SID>cocActionsOpenFromSelected<CR>g@
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+" Remap keys for applying codeAction to the current buffer.
+nmap <leader>ac  <Plug>(coc-codeaction)
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)

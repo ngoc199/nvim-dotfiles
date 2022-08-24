@@ -58,6 +58,12 @@ if has("nvim")
 	" Nodejs extension host for vim & neovim, load extensions like VSCode and host language servers
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+    " Debugging
+    " Plug 'puremourning/vimspector'
+    Plug 'mfussenegger/nvim-dap'
+    Plug 'rcarriga/nvim-dap-ui'
+    Plug 'theHamsta/nvim-dap-virtual-text'
+
 	" Syntax highlighting
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
@@ -108,6 +114,10 @@ nnoremap zz :w<CR>
 nnoremap zx :wq<CR>
 nnoremap <leader>e :PlugInstall<CR>
 nnoremap <F3> :Explore<CR>
+nnoremap <S-k> :m .-2<CR>
+nnoremap <S-j> :m .+1<CR>
+vnoremap <S-j> :m '>+1<CR>gv=gv
+vnoremap <S-k> :m '<-2<CR>gv=gv
 
 " New line in normal mode and back
 map <Enter> o<ESC>
@@ -117,7 +127,6 @@ map <S-Enter> O<ESC>
 nnoremap <silent> [b :bprevious<CR>
 nnoremap <silent> ]b :bnext<CR>
 nnoremap <silent> [B :bfirst<CR>
-
 nnoremap <silent> ]B :blast<CR>
 
 " switch between splits using ctrl + {h,j,k,l}
@@ -239,3 +248,108 @@ require("toggleterm").setup{
     },
 }
 EOF
+
+" Debugging
+lua << EOF
+-- Set up DAP
+local dap = require("dap")
+dap.adapters.node2 = {
+ type = 'executable',
+ command = 'node',
+ args = {os.getenv('HOME') .. '/debugger-adapters/vscode-node-debug2/out/src/nodeDebug.js'}
+}
+dap.configurations.javascript = {
+  {
+    name = 'Launch',
+    type = 'node2',
+    request = 'launch',
+    program = '${file}',
+    cwd = vim.fn.getcwd(),
+    sourceMaps = true,
+    protocol = 'inspector',
+    skipFiles = {'<node_internals>/**/*.js'},
+  },
+  {
+    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
+    name = 'Attach to process',
+    type = 'node2',
+    request = 'attach',
+    processId = require'dap.utils'.pick_process,
+  },
+}
+vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
+vim.fn.sign_define('DapStopped', {text='🟢', texthl='', linehl='', numhl=''})
+
+-- Set up DAP UI
+require("dapui").setup({
+  icons = { expanded = "▾", collapsed = "▸" },
+  mappings = {
+    -- Use a table to apply multiple mappings
+    expand = { "<CR>", "<2-LeftMouse>" },
+    open = "o",
+    remove = "d",
+    edit = "e",
+    repl = "r",
+    toggle = "t",
+  },
+  -- Expand lines larger than the window
+  -- Requires >= 0.7
+  expand_lines = vim.fn.has("nvim-0.7"),
+  -- Layouts define sections of the screen to place windows.
+  -- The position can be "left", "right", "top" or "bottom".
+  -- The size specifies the height/width depending on position. It can be an Int
+  -- or a Float. Integer specifies height/width directly (i.e. 20 lines/columns) while
+  -- Float value specifies percentage (i.e. 0.3 - 30% of available lines/columns)
+  -- Elements are the elements shown in the layout (in order).
+  -- Layouts are opened in order so that earlier layouts take priority in window sizing.
+  layouts = {
+    {
+      elements = {
+      -- Elements can be strings or table with id and size keys.
+        { id = "scopes", size = 0.25 },
+        "breakpoints",
+        "stacks",
+        "watches",
+      },
+      size = 40, -- 40 columns
+      position = "left",
+    },
+    {
+      elements = {
+        "repl",
+        "console",
+      },
+      size = 0.25, -- 25% of total lines
+      position = "bottom",
+    },
+  },
+  floating = {
+    max_height = nil, -- These can be integers or a float between 0 and 1.
+    max_width = nil, -- Floats will be treated as percentage of your screen.
+    border = "single", -- Border style. Can be "single", "double" or "rounded"
+    mappings = {
+      close = { "q", "<Esc>" },
+    },
+  },
+  windows = { indent = 1 },
+  render = {
+    max_type_length = nil, -- Can be integer or nil.
+  }
+})
+
+-- Set up DAP virtual text
+require("nvim-dap-virtual-text").setup()
+EOF
+
+nnoremap <silent> <S-F5> <Cmd>lua require'dap'.continue()<CR>
+nnoremap <silent> <S-F7> <Cmd>lua require'dap'.step_over()<CR>
+nnoremap <silent> <S-F8> <Cmd>lua require'dap'.step_into()<CR>
+nnoremap <silent> <S-F9> <Cmd>lua require'dap'.step_out()<CR>
+nnoremap <silent> <Leader>b <Cmd>lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <Leader>B <Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <silent> <Leader>lp <Cmd>lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>
+nnoremap <silent> <Leader>dr <Cmd>lua require'dap'.repl.open()<CR>
+nnoremap <silent> <Leader>dl <Cmd>lua require'dap'.run_last()<CR>
+nnoremap <silent> <Leader>da <Cmd>lua require'debugHelper'.attach()<CR>
+nnoremap <silent> <Leader>do <Cmd>lua require'dapui'.open()<CR>
+nnoremap <silent> <Leader>dc <Cmd>lua require'dapui'.close()<CR>

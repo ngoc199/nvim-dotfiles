@@ -61,6 +61,9 @@ if has("nvim")
 	" Syntax highlighting
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+    " Toggle Terminal
+    Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
+
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 	Plug 'nvim-telescope/telescope.nvim' " fuzzy finder
@@ -220,3 +223,19 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
 nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Toggle Terminal
+nnoremap <F4> :ToggleTerm<CR>
+
+lua << EOF
+require("toggleterm").setup{
+    size = 20,
+    hide_numbers = true,
+    windbar = {
+        enable = false,
+        name_formatter = function(term)
+            return term.name
+        end
+    },
+}
+EOF

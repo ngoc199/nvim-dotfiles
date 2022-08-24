@@ -58,6 +58,7 @@ Then try to use these hotkeys to make your life easier.
 | <leader>a  | <Plug>(coc-codeaction-selected) | Open actions for the current selected range  |
 | <leader>ac | <Plug>(coc-codeaction)          | Open actions for the current buffer          |
 | <leader>qf | <Plug>(coc-fix-current)         | Apply Autofix to problem on the current line |
+| <number>F4 | :ToggleTerm                     | Toggle Terminal <number>                     |
 
 ## Connect With Me
 

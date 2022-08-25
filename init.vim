@@ -51,7 +51,6 @@ Plug 'cohama/lexima.vim' " Auto close parenthenses
 Plug 'tpope/vim-commentary' " Comment code
 Plug 'editorconfig/editorconfig-vim' " Editor config
 Plug 'github/copilot.vim' " AI pair programmer
-Plug 'kevinhwang91/nvim-bqf' " Quickfix
 
 if has("nvim") 
 	Plug 'projekt0n/github-nvim-theme' " Theme
@@ -76,6 +75,9 @@ if has("nvim")
     Plug 'hrsh7th/cmp-nvim-lsp'
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/cmp-path'
+
+    " Version Control
+    Plug 'mhinz/vim-signify'
 
     " Formatting
     Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
@@ -214,6 +216,9 @@ nnoremap <silent> <Leader>dc <Cmd>lua require'dapui'.close()<CR>
 
 " LSP
 lua require('lsp')
+
+" Version Control
+set updatetime=100
 
 " Formatting
 let g:prettier#autoformat = 1

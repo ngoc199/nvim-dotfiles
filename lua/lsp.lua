@@ -10,6 +10,7 @@ require'lspconfig'.tsserver.setup{
         vim.keymap.set('n', "gn", vim.diagnostic.goto_next, {buffer=0})
         vim.keymap.set('n', "gb", vim.diagnostic.goto_prev, {buffer=0})
         vim.keymap.set('n', "sd", "<cmd>Telescope diagnostics<cr>", {buffer=0})
+        vim.keymap.set('n', "<leader>a", vim.lsp.buf.code_action, {buffer=0})
     end
 }
 require'lspconfig'.emmet_ls.setup{}

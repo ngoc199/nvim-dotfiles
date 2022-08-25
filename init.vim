@@ -55,8 +55,6 @@ Plug 'kevinhwang91/nvim-bqf' " Quickfix
 
 if has("nvim") 
 	Plug 'projekt0n/github-nvim-theme' " Theme
-	" Nodejs extension host for vim & neovim, load extensions like VSCode and host language servers
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Debugging
     " Plug 'puremourning/vimspector'
@@ -69,6 +67,18 @@ if has("nvim")
 
     " Toggle Terminal
     Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
+
+    " LSP Config
+    Plug 'neovim/nvim-lspconfig'
+
+    " Autocomplete
+    Plug 'hrsh7th/nvim-cmp'
+    Plug 'hrsh7th/cmp-nvim-lsp'
+    Plug 'hrsh7th/cmp-buffer'
+    Plug 'hrsh7th/cmp-path'
+
+    " Formatting
+    Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -183,164 +193,12 @@ set redrawtime=10000
 set synmaxcol=180
 set re=2
 
-" Coc
-
-set hidden
-set nobackup
-set nowritebackup
-set cmdheight=1
-set updatetime=300
-set signcolumn=yes
-
-" Navigate snippet placeholders using tab
-let g:coc_snippet_next = '<Tab>'
-let g:coc_snippet_prev = '<S-Tab>'
-
-" list of the extensions to make sure are always installed
-let g:coc_global_extensions = [
-            \'coc-yank',
-            \'coc-pairs',
-            \'coc-json',
-            \'coc-css',
-            \'coc-html',
-            \'coc-tsserver',
-            \'coc-yaml',
-            \'coc-lists',
-            \'coc-snippets',
-            \'coc-pyright',
-            \'coc-clangd',
-            \'coc-prettier',
-            \'coc-xml',
-            \'coc-syntax',
-            \'coc-git',
-            \'coc-marketplace',
-            \'coc-highlight',
-            \'coc-sh',
-            \'coc-eslint',
-            \'coc-emmet',
-            \'coc-actions',
-            \]
-
-" Coc multi cursor highlight color
-hi CocCursorRange guibg=#b16286 guifg=#ebdbb2
-
-" Coc hotkeys
-nmap <C-]> <Plug>(coc-definition)
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-" Remap keys for applying codeAction to the current buffer.
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Apply AutoFix to problem on the current line.
-nmap <leader>qf  <Plug>(coc-fix-current)
-
 " Toggle Terminal
 nnoremap <F4> :ToggleTerm<CR>
-
-lua << EOF
-require("toggleterm").setup{
-    size = 20,
-    hide_numbers = true,
-    windbar = {
-        enable = false,
-        name_formatter = function(term)
-            return term.name
-        end
-    },
-}
-EOF
+lua require('toggleTerm')
 
 " Debugging
-lua << EOF
--- Set up DAP
-local dap = require("dap")
-dap.adapters.node2 = {
- type = 'executable',
- command = 'node',
- args = {os.getenv('HOME') .. '/debugger-adapters/vscode-node-debug2/out/src/nodeDebug.js'}
-}
-dap.configurations.javascript = {
-  {
-    name = 'Launch',
-    type = 'node2',
-    request = 'launch',
-    program = '${file}',
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = 'inspector',
-    skipFiles = {'<node_internals>/**/*.js'},
-  },
-  {
-    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
-    name = 'Attach to process',
-    type = 'node2',
-    request = 'attach',
-    processId = require'dap.utils'.pick_process,
-  },
-}
-vim.fn.sign_define('DapBreakpoint', {text='🟥', texthl='', linehl='', numhl=''})
-vim.fn.sign_define('DapStopped', {text='🟢', texthl='', linehl='', numhl=''})
-
--- Set up DAP UI
-require("dapui").setup({
-  icons = { expanded = "▾", collapsed = "▸" },
-  mappings = {
-    -- Use a table to apply multiple mappings
-    expand = { "<CR>", "<2-LeftMouse>" },
-    open = "o",
-    remove = "d",
-    edit = "e",
-    repl = "r",
-    toggle = "t",
-  },
-  -- Expand lines larger than the window
-  -- Requires >= 0.7
-  expand_lines = vim.fn.has("nvim-0.7"),
-  -- Layouts define sections of the screen to place windows.
-  -- The position can be "left", "right", "top" or "bottom".
-  -- The size specifies the height/width depending on position. It can be an Int
-  -- or a Float. Integer specifies height/width directly (i.e. 20 lines/columns) while
-  -- Float value specifies percentage (i.e. 0.3 - 30% of available lines/columns)
-  -- Elements are the elements shown in the layout (in order).
-  -- Layouts are opened in order so that earlier layouts take priority in window sizing.
-  layouts = {
-    {
-      elements = {
-      -- Elements can be strings or table with id and size keys.
-        { id = "scopes", size = 0.25 },
-        "breakpoints",
-        "stacks",
-        "watches",
-      },
-      size = 40, -- 40 columns
-      position = "left",
-    },
-    {
-      elements = {
-        "repl",
-        "console",
-      },
-      size = 0.25, -- 25% of total lines
-      position = "bottom",
-    },
-  },
-  floating = {
-    max_height = nil, -- These can be integers or a float between 0 and 1.
-    max_width = nil, -- Floats will be treated as percentage of your screen.
-    border = "single", -- Border style. Can be "single", "double" or "rounded"
-    mappings = {
-      close = { "q", "<Esc>" },
-    },
-  },
-  windows = { indent = 1 },
-  render = {
-    max_type_length = nil, -- Can be integer or nil.
-  }
-})
-
--- Set up DAP virtual text
-require("nvim-dap-virtual-text").setup()
-EOF
-
+lua require('debugging')
 nnoremap <silent> <S-F5> <Cmd>lua require'dap'.continue()<CR>
 nnoremap <silent> <S-F7> <Cmd>lua require'dap'.step_over()<CR>
 nnoremap <silent> <S-F8> <Cmd>lua require'dap'.step_into()<CR>
@@ -353,3 +211,10 @@ nnoremap <silent> <Leader>dl <Cmd>lua require'dap'.run_last()<CR>
 nnoremap <silent> <Leader>da <Cmd>lua require'debugHelper'.attach()<CR>
 nnoremap <silent> <Leader>do <Cmd>lua require'dapui'.open()<CR>
 nnoremap <silent> <Leader>dc <Cmd>lua require'dapui'.close()<CR>
+
+" LSP
+lua require('lsp')
+
+" Formatting
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0

@@ -81,7 +81,8 @@ if has("nvim")
     Plug 'mhinz/vim-signify'
 
     " Formatting
-    Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
+    Plug 'jose-elias-alvarez/null-ls.nvim'
+    Plug 'MunifTanjim/prettier.nvim'
 
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
@@ -121,7 +122,7 @@ nnoremap <C-t> :call Toggle_transparent()<CR>
 
 " The essentials
 let mapleader=","
-nnoremap <leader>r :source %<CR>
+nnoremap <leader>r :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>q :bd<CR>
 nnoremap zz :w<CR>
 nnoremap zx :wq<CR>
@@ -222,5 +223,5 @@ lua require('lsp')
 set updatetime=100
 
 " Formatting
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
+lua require('prettierrc')
+lua require('null-lsrc')

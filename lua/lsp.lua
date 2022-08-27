@@ -1,7 +1,7 @@
 -- LSP
 require'lspconfig'.tsserver.setup{
     capabilities = capabilities,
-    on_attach = function()
+    on_attach = function(client, bufnr)
         vim.keymap.set('n', "L", vim.lsp.buf.hover, {buffer=0})
         vim.keymap.set('n', "<C-]>", vim.lsp.buf.definition, {buffer=0})
         vim.keymap.set('n', "gt", vim.lsp.buf.type_definition, {buffer=0})

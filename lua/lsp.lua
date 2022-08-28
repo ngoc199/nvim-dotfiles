@@ -20,6 +20,7 @@ require'lspconfig'.html.setup{}
 require'lspconfig'.prismals.setup{}
 require'lspconfig'.vuels.setup{}
 require'lspconfig'.tailwindcss.setup{}
+require'lspconfig'.cucumber_language_server.setup{}
 
 -- Autocomplete
 vim.opt.completeopt = {"menu", "menuone", "noselect"}

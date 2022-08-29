@@ -224,4 +224,4 @@ set updatetime=100
 
 " Formatting
 lua require('prettierrc')
-lua require('null-lsrc')
+lua require('nulllsrc')

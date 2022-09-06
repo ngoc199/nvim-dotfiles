@@ -167,10 +167,11 @@ local actions = require('telescope.actions')
 require('telescope').setup{
     pickers = {
         find_files = {
-            hidden = true
+            hidden = true,
         }
     },
 	defaults = {
+        file_ignore_patterns = { ".git/" },
 		mappings = {
 			n = {
 				["q"] = actions.close
@@ -181,7 +182,7 @@ require('telescope').setup{
 				fuzzy = true,
 				override_generic_sorter = true,
 				override_file_sorter = true,
-				case_mode = "smart_case"
+				case_mode = "smart_case",
 			}
 		},
 	},

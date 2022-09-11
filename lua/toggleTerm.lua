@@ -1,5 +1,6 @@
 require("toggleterm").setup{
-    size = 20,
+    size = 10,
+    open_mapping = [[<F4>]],
     hide_numbers = true,
     windbar = {
         enable = false,

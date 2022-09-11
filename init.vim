@@ -199,7 +199,6 @@ set synmaxcol=180
 set re=2
 
 " Toggle Terminal
-nnoremap <F4> :ToggleTerm<CR>
 lua require('toggleTerm')
 
 " Debugging

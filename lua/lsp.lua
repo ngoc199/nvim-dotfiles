@@ -20,7 +20,19 @@ require'lspconfig'.html.setup{}
 require'lspconfig'.prismals.setup{}
 require'lspconfig'.vuels.setup{}
 require'lspconfig'.tailwindcss.setup{}
-require'lspconfig'.cucumber_language_server.setup{}
+require'lspconfig'.cucumber_language_server.setup{
+    settings = {
+        cucumber = {
+            features = { "**/*.feature" },
+            glue = { "**/*.steps.ts", "**/*.step.ts" }
+        }
+    },
+    on_attach = function(client, bufnr)
+        vim.keymap.set('n', "<C-]>", vim.lsp.buf.definition, {buffer=0})
+        vim.keymap.set('n', "gn", vim.diagnostic.goto_next, {buffer=0})
+        vim.keymap.set('n', "gb", vim.diagnostic.goto_prev, {buffer=0})
+    end
+}
 
 -- Autocomplete
 vim.opt.completeopt = {"menu", "menuone", "noselect"}

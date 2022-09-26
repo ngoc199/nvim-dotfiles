@@ -16,6 +16,9 @@ set emoji                                               " Enable emojis
 set history=1000                                        " History limit
 set showtabline=0                                       " Always show tab line
 
+" Netrw
+let g:netrw_liststyle=3
+
 " WSL2 to Windows Clipboard
 if has('wsl')
     let g:clipboard = {

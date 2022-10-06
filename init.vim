@@ -17,7 +17,7 @@ set history=1000                                        " History limit
 set showtabline=0                                       " Always show tab line
 
 " Netrw
-let g:netrw_liststyle=3
+let g:netrw_liststyle=0
 
 " WSL2 to Windows Clipboard
 if has('wsl')

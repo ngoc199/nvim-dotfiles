@@ -112,6 +112,15 @@ let t:is_transparent = 0
 function! Toggle_transparent()
     if t:is_transparent == 0
         hi Normal guibg=NONE ctermbg=NONE
+        hi NormalNC guibg=NONE ctermbg=NONE
+        hi NormalSB guibg=NONE ctermbg=NONE
+        hi LineNr guibg=none ctermbg=none
+        hi Folded guibg=none ctermbg=none
+        hi NonText guibg=none ctermbg=none
+        hi SpecialKey guibg=none ctermbg=none
+        hi VertSplit guibg=none ctermbg=none
+        hi SignColumn guibg=none ctermbg=none
+        hi EndOfBuffer guibg=none ctermbg=none
         let t:is_transparent = 1
     else
         set background=dark

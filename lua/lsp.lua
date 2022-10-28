@@ -14,7 +14,17 @@ require'lspconfig'.tsserver.setup{
     end
 }
 require'lspconfig'.emmet_ls.setup{}
-require'lspconfig'.cssmodules_ls.setup{}
+require'lspconfig'.cssmodules_ls.setup{
+    capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        vim.keymap.set('n', "<C-]>", vim.lsp.buf.definition, {buffer=0})
+        vim.keymap.set('n', "gt", vim.lsp.buf.type_definition, {buffer=0})
+        vim.keymap.set('n', "<F2>", vim.lsp.buf.rename, {buffer=0})
+        vim.keymap.set('n', "gi", vim.lsp.buf.implementation, {buffer=0})
+        vim.keymap.set('n', "gn", vim.diagnostic.goto_next, {buffer=0})
+        vim.keymap.set('n', "gb", vim.diagnostic.goto_prev, {buffer=0})
+    end
+}
 require'lspconfig'.eslint.setup{}
 require'lspconfig'.html.setup{}
 require'lspconfig'.prismals.setup{}

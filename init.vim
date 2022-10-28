@@ -238,3 +238,5 @@ set updatetime=100
 " Formatting
 lua require('prettierrc')
 lua require('nulllsrc')
+
+nnoremap <leader>fm <Cmd>Prettier<CR>

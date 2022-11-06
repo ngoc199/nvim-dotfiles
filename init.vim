@@ -134,7 +134,7 @@ nnoremap <C-t> :call Toggle_transparent()<CR>
 " HOTKEYS
 
 " The essentials
-let mapleader=","
+let mapleader=" "
 nnoremap <leader>r :source ~/.config/nvim/init.vim<CR>
 nnoremap <leader>q :bd<CR>
 nnoremap zz :w<CR>

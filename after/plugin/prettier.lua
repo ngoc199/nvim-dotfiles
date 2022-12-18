@@ -1,4 +1,4 @@
-local prettier = require("prettier")
+local prettier = require('prettier')
 
 prettier.setup({
   bin = 'prettierd', -- or `prettier`
@@ -17,3 +17,5 @@ prettier.setup({
     "yaml",
   },
 })
+
+vim.keymap.set("n", "<leader>fm", vim.cmd('Prettier'))

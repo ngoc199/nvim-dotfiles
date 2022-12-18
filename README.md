@@ -1,12 +1,22 @@
-# NVim Config Files
+# NeoVim Config Files
 
-These are my Neovim configuration files. Feel free to fork this and modify as
-you need.
+These are my Neovim configuration files. Feel free to fork this and modify as you need.
+
+All the files are written in [lua language](https://www.lua.org/).
+
+## Dependencies
+
+Before using this Neovim configuration, these dependencies must be installed:
+
+- [ripgrep](https://github.com/BurntSushi/ripgrep)
+- [fzf - fuzzy finder](https://github.com/junegunn/fzf)
+- [Packer - plugin manager](https://github.com/wbthomason/packer.nvim)
+- [NodeJS](https://nodejs.org/en/) or [nvm](https://github.com/nvm-sh/nvm) to install Node
+- [Nerd Fonts](https://www.nerdfonts.com/) for the best experience
 
 ## Theme
 
-I use the `projekt0n/github-nvim-theme` dark theme. It looks clean and
-comfortable for my eyes.
+I use the [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme) dark theme. It looks clean and comfortable for my eyes.
 
 One more reason I use dark mode.
 
@@ -17,7 +27,7 @@ One more reason I use dark mode.
 | Plugin                                   | Description                                        |
 | ---------------------------------------- | -------------------------------------------------- |
 | cohama/lexima.vim                        | Auto close parentheses                             |
-| neoclide/coc.nvim                        | Language Server Protocol (LSP) and more extensions |
+| VonHeikemen/lsp-zero.nvim                | Language Server Protocol (LSP)                     |
 | nvim-treesitter/nvim-treesitter          | Better syntax highlighting than VSCode             |
 | nvim-lua/plenary.nvim                    | Required to use Telescope                          |
 | nvim-telescope/telescope-fzf-native.nvim | Fuzzy finder extension for Telescope               |
@@ -32,33 +42,32 @@ Too lazy to type the whole things to the commands? Don't want to do repeat task?
 
 Then try to use these hotkeys to make your life easier.
 
-| Hotkey     | What it does                  | Description                                 |
-| ---------- | ----------------------------- | ------------------------------------------- |
-| ,          | <leader>                        | Don't need to reach that far                 |
-| <leader>r  | :source %<CR>                   | Reload the config files                      |
-| <leader>q  | :bd<CR>                         | Delete the buffer                            |
-| zz         | :w<CR>                          | Save file                                    |
-| zx         | :wq<CR>                         | Save file and quit                           |
-| <leader>e  | :PlugInstall<CR>                | Install Plugins                              |
-| <Enter>    | o<ESC>                          | Enter new line below in `normal` mode        |
-| <S-Enter>  | O<ESC>                          | Enter new line above in `normal` mode        |
-| [b         | :bprevious<CR>                  | Move to previous buffer                      |
-| ]b         | :bnext<CR>                      | Move to next buffer                          |
-| [B         | :bfirst<CR>                     | Move to the first buffer                     |
-| ]B         | :blast<CR>                      | Move to the last buffer                      |
-| <C-hjkl>   | <C-w>hjkl                       | Navigate between splits                      |
-| <leader>ff | <Cmd>Telescope find_files<CR>   | Find files in the project                    |
-| <leader>ff | <Cmd>Telescope find_files<CR>   | Search text in the project                   |
-| <leader>fb | <Cmd>Telescope buffers<CR>      | Find buffers                                 |
-| <leader>fh | <Cmd>Telescope help_tags<CR>    | Find help tags                               |
-| gcc        |                                 | Comment out a line                           |
-| gcc        |                                 | Comment out a target of a motion             |
-| <C-]>      | <Plug>(coc-definition)          | Jump to definition                           |
-| <F3>       | :Explore<CR>                    | Open Netrw                                   |
-| <leader>a  | <Plug>(coc-codeaction-selected) | Open actions for the current selected range  |
-| <leader>ac | <Plug>(coc-codeaction)          | Open actions for the current buffer          |
-| <leader>qf | <Plug>(coc-fix-current)         | Apply Autofix to problem on the current line |
-| <number>F4 | :ToggleTerm                     | Toggle Terminal <number>                     |
+| Hotkey     | What it does                  | Description                                  |
+| ---------- | ----------------------------- | ---------------------------------------------|
+| ,          | <leader>                      | Don't need to reach that far                 |
+| <leader>r  | :source %<CR>                 | Reload the config files                      |
+| <leader>q  | :bd<CR>                       | Delete the buffer                            |
+| zz         | :w<CR>                        | Save file                                    |
+| zx         | :wq<CR>                       | Save file and quit                           |
+| <leader>e  | :PlugInstall<CR>              | Install Plugins                              |
+| <Enter>    | o<ESC>                        | Enter new line below in `normal` mode        |
+| <S-Enter>  | O<ESC>                        | Enter new line above in `normal` mode        |
+| [b         | :bprevious<CR>                | Move to previous buffer                      |
+| ]b         | :bnext<CR>                    | Move to next buffer                          |
+| [B         | :bfirst<CR>                   | Move to the first buffer                     |
+| ]B         | :blast<CR>                    | Move to the last buffer                      |
+| <C-hjkl>   | <C-w>hjkl                     | Navigate between splits                      |
+| <leader>ff | <Cmd>Telescope find_files<CR> | Find files in the project                    |
+| <leader>ff | <Cmd>Telescope find_files<CR> | Search text in the project                   |
+| <leader>fb | <Cmd>Telescope buffers<CR>    | Find buffers                                 |
+| <leader>fh | <Cmd>Telescope help_tags<CR>  | Find help tags                               |
+| gcc        | vim-commentary default        | Comment out a line                           |
+| gcc        | vim-commentary default        | Comment out a target of a motion             |
+| <C-]>      | vim.lsp.buf.definition        | Jump to definition                           |
+| <F3>       | :Explore<CR>                  | Open Netrw                                   |
+| <leader>a  | vim.lsp.buf.code_action       | Open quick actions                           |
+| gn         | vim.diagnostic.goto_next      | Go to next diagnostic                        |
+| gb         | vim.diagnostic.goto_prev      | Go to previous diagnostic                    |
 
 ## Connect With Me
 

@@ -20,9 +20,6 @@ return require('packer').startup(function(use)
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use('nvim-treesitter/playground')
 
-	-- Toggle Terminal
-	use{'akinsho/toggleterm.nvim', tag = 'v2.*'}
-
 	-- LSP
 	use {
 	  'VonHeikemen/lsp-zero.nvim',
@@ -50,8 +47,7 @@ return require('packer').startup(function(use)
 	use('tpope/vim-fugitive')
 
 	-- Formatting
-	use('jose-elias-alvarez/null-ls.nvim')
-	use('MunifTanjim/prettier.nvim')
+	use('mhartington/formatter.nvim')
 
 	use('nvim-lua/plenary.nvim')
 	use({'nvim-telescope/telescope-fzf-native.nvim',  run = 'make' })

@@ -109,6 +109,11 @@ _G.packer_plugins = {
     path = "/home/ngoc/.local/share/nvim/site/pack/packer/start/editorconfig-vim",
     url = "https://github.com/editorconfig/editorconfig-vim"
   },
+  ["formatter.nvim"] = {
+    loaded = true,
+    path = "/home/ngoc/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    url = "https://github.com/mhartington/formatter.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/ngoc/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -138,11 +143,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ngoc/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
-  },
-  ["null-ls.nvim"] = {
-    loaded = true,
-    path = "/home/ngoc/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
-    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -194,11 +194,6 @@ _G.packer_plugins = {
     path = "/home/ngoc/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["prettier.nvim"] = {
-    loaded = true,
-    path = "/home/ngoc/.local/share/nvim/site/pack/packer/start/prettier.nvim",
-    url = "https://github.com/MunifTanjim/prettier.nvim"
-  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/home/ngoc/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -208,11 +203,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ngoc/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
-  },
-  ["toggleterm.nvim"] = {
-    loaded = true,
-    path = "/home/ngoc/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
-    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   ["vim-commentary"] = {
     loaded = true,

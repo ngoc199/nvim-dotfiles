@@ -13,6 +13,7 @@ Before using this Neovim configuration, these dependencies must be installed:
 - [Packer - plugin manager](https://github.com/wbthomason/packer.nvim)
 - [NodeJS](https://nodejs.org/en/) or [nvm](https://github.com/nvm-sh/nvm) to install Node
 - [Nerd Fonts](https://www.nerdfonts.com/) for the best experience
+- [Prettierd](https://github.com/fsouza/prettierd) for formatting
 
 ## Theme
 
@@ -35,6 +36,8 @@ One more reason I use dark mode.
 | kyazdani42/nvim-web-devicons             | Icons pack (require nerd fonts)                    |
 | tpope/vim-commentary                     | Comment code                                       |
 | editorconfig/editorconfig-vim            | Editor Config                                      |
+| mhartington/formatter.nvim               | File Formatter                                     |
+| airblade/vim-gitgutter                   | Show `git diff` (changes) of a file                |
 
 ## Hotkeys You Love To Know
 
@@ -61,6 +64,8 @@ Then try to use these hotkeys to make your life easier.
 | <leader>ff | <Cmd>Telescope find_files<CR> | Search text in the project                   |
 | <leader>fb | <Cmd>Telescope buffers<CR>    | Find buffers                                 |
 | <leader>fh | <Cmd>Telescope help_tags<CR>  | Find help tags                               |
+| <leader>fm | <Cmd>Format<CR>               | Format the file                              |
+| <leader>fM | <Cmd>FormatWrite<CR>          | Format and save the file                     |
 | gcc        | vim-commentary default        | Comment out a line                           |
 | gcc        | vim-commentary default        | Comment out a target of a motion             |
 | <C-]>      | vim.lsp.buf.definition        | Jump to definition                           |

@@ -67,19 +67,9 @@ formatter.setup(
           }
         end
       },
-      lua = {
-        -- luafmt
-        function()
-          return {
-            exe = "luafmt",
-            args = {"--indent-count", 2, "--stdin"},
-            stdin = true
-          }
-        end
-      }
     }
   }
 )
 
-vim.keymap.set("n", "<leader>fm", vim.cmd("Format"))
-vim.keymap.set("n", "<leader>fM", vim.cmd("FormatWrite"))
+vim.keymap.set("n", "<leader>fm", "<Cmd>Format<CR>")
+vim.keymap.set("n", "<leader>fM", "<Cmd>FormatWrite<CR>")

@@ -35,6 +35,8 @@ vim.opt.emoji = true -- support emoji
 vim.opt.history = 1000 -- history limit
 vim.opt.showtabline = 0 -- always show tab line
 
+vim.cmd('set clipboard=unnamedplus') -- use system clipboard
+
 -- nertrw
 vim.g.netrw_liststyle = 0
 

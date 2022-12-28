@@ -36,8 +36,6 @@ vim.opt.emoji = true -- support emoji
 vim.opt.history = 1000 -- history limit
 vim.opt.showtabline = 0 -- always show tab line
 
-vim.cmd('set clipboard=unnamedplus') -- use system clipboard
-
 if vim.fn.has('wsl') == 1 then
     vim.api.nvim_create_autocmd('TextYankPost', {
         group = vim.api.nvim_create_augroup('Yank', { clear = true }),

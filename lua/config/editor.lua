@@ -24,8 +24,8 @@ vim.cmd('set wrap breakindent linebreak nolist')
 -- text encoding
 vim.cmd('set encoding=utf-8')
 
--- tab title as file name
-vim.opt.title = true
+-- tab title as file name (comment this because it causes glitch issue on gnome-terminal on Fedora 37)
+-- vim.opt.title = true
 
 vim.opt.conceallevel = 2 -- set this so we won't break indenation plugin
 

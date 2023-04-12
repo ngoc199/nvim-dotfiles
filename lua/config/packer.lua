@@ -20,6 +20,9 @@ return require('packer').startup(function(use)
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use('nvim-treesitter/playground')
 
+    -- Github Copilot
+    use('github/copilot.vim')
+
 	-- LSP
 	use {
 	  'VonHeikemen/lsp-zero.nvim',

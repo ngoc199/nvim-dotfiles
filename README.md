@@ -66,6 +66,11 @@ Then try to use these hotkeys to make your life easier.
 | <leader>fh | <Cmd>Telescope help_tags<CR>  | Find help tags                               |
 | <leader>fm | <Cmd>Format<CR>               | Format the file                              |
 | <leader>fM | <Cmd>FormatWrite<CR>          | Format and save the file                     |
+| <leader>db | dap.toggle_breakpoint         | Toggle breakpoint                            |
+| <F5>       | dap.continue                  | Start a new debug session / Continue debug session |
+| <F6>       | dap.step_over                 | Step over in debug session                   |
+| <F7>       | dap.step_into                 | Step into in debug session                   |
+| <F8>       | dap.step_out                  | Step out in debug session                    |
 | gcc        | vim-commentary default        | Comment out a line                           |
 | gcc        | vim-commentary default        | Comment out a target of a motion             |
 | <C-]>      | vim.lsp.buf.definition        | Jump to definition                           |

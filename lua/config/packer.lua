@@ -12,7 +12,22 @@ return require('packer').startup(function(use)
 	use('projekt0n/github-nvim-theme') -- Theme
 
 	-- Debugging
-	use('mfussenegger/nvim-dap')
+	use{
+        'mfussenegger/nvim-dap',
+        opt = true,
+        module = { "dap" },
+        requires = {
+            "rcarriga/nvim-dap-ui",
+            "theHamsta/nvim-dap-virtual-text",
+            { "mxsdev/nvim-dap-vscode-js" }, 
+            {
+              "microsoft/vscode-js-debug",
+              opt = true,
+              run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" 
+            }
+        },
+        disable = false,
+    }
 	use('rcarriga/nvim-dap-ui')
 	use('theHamsta/nvim-dap-virtual-text')
 

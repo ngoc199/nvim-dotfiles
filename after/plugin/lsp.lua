@@ -1,3 +1,36 @@
+local navic = require("nvim-navic")
+
+navic.setup {
+    icons = {
+        File          = "",
+        Module        = " ",
+        Namespace     = " ",
+        Package       = "",
+        Class         = " ",
+        Method        = " ",
+        Property      = " ",
+        Field         = " ",
+        Constructor   = " ",
+        Enum          = " ",
+        Interface     = "",
+        Function      = " ",
+        Variable      = " ",
+        Constant      = " ",
+        String        = " ",
+        Number        = "#",
+        Boolean       = "◩ ",
+        Array         = "",
+        Object        = " ",
+        Key           = " ",
+        Null          = "NULL",
+        EnumMember    = " ",
+        Struct        = "",
+        Event         = " ",
+        Operator      = " ",
+        TypeParameter = " ",
+    }
+}
+
 local lsp = require('lsp-zero')
 
 lsp.preset('recommended')
@@ -33,6 +66,12 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set('n', "gb", vim.diagnostic.goto_prev, opts)
 	vim.keymap.set('n', "sd", "<cmd>Telescope diagnostics<cr>", opts)
 	vim.keymap.set('n', "<leader>a", vim.lsp.buf.code_action, opts)
+
+    -- init breadcrumbs
+    if client.server_capabilities.documentSymbolProvider then
+        navic.attach(client, bufnr)
+    end
 end)
 
 lsp.setup()
+vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"

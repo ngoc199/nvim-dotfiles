@@ -155,7 +155,7 @@ _G.packer_plugins = {
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
   ["nvim-dap"] = {
-    after = { "nvim-dap-vscode-js", "vscode-js-debug" },
+    after = { "vscode-js-debug", "nvim-dap-vscode-js" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -185,6 +185,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ngoc/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-navic"] = {
+    loaded = true,
+    path = "/home/ngoc/.local/share/nvim/site/pack/packer/start/nvim-navic",
+    url = "https://github.com/SmiteshP/nvim-navic"
   },
   ["nvim-treesitter"] = {
     loaded = true,

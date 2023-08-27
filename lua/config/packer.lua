@@ -73,4 +73,10 @@ return require('packer').startup(function(use)
 	-- fuzzy finder
 	use('nvim-telescope/telescope.nvim') 
 	use('kyazdani42/nvim-web-devicons')
+
+    -- breadcrumbs
+    use {
+        "SmiteshP/nvim-navic",
+        requires = "neovim/nvim-lspconfig"
+    }
 end)

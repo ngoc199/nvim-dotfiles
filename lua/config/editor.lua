@@ -57,26 +57,3 @@ vim.opt.redrawtime = 10000
 vim.opt.synmaxcol = 180
 vim.opt.re = 2
 vim.opt.updatetime = 100
-
--- toggle transparency
-local is_transparent = 0
-function Toggle_transparent()
-	if is_transparent == 0 then
-		vim.cmd('hi Normal guibg=NONE ctermbg=NONE')
-		vim.cmd('hi NormalNC guibg=NONE ctermbg=NONE')
-		vim.cmd('hi NormalSB guibg=NONE ctermbg=NONE')
-		vim.cmd('hi LineNr guibg=none ctermbg=none')
-		vim.cmd('hi Folded guibg=none ctermbg=none')
-		vim.cmd('hi NonText guibg=none ctermbg=none')
-		vim.cmd('hi SpecialKey guibg=none ctermbg=none')
-		vim.cmd('hi VertSplit guibg=none ctermbg=none')
-		vim.cmd('hi SignColumn guibg=none ctermbg=none')
-		vim.cmd('hi EndOfBuffer guibg=none ctermbg=none')
-		is_transparent = 1
-	else
-		vim.cmd('set background=dark')
-		is_transparent = 0
-	end
-end
-
-vim.keymap.set("n", "<C-t>", Toggle_transparent)

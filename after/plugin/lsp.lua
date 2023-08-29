@@ -42,20 +42,10 @@ lsp.ensure_installed({
 	'eslint',
 })
 
-local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp.defaults.cmp_mappings({
-	['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-	['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-	['<CR>'] = cmp.mapping.confirm({select = true}),
-	['<C-Space>'] = cmp.mapping.complete(),
-})
-
-lsp.setup_nvim_cmp({
-	mapping = cmp_mappings
-})
-
 lsp.on_attach(function(client, bufnr)
+    lsp.default_keymaps({
+        buffer = bufnr
+    })
 	local opts = {buffer = bufnr, remap = false}
 	vim.keymap.set('n', "L", vim.lsp.buf.hover, opts)
 	vim.keymap.set('n', "<C-]>", vim.lsp.buf.definition, opts)
@@ -75,3 +65,18 @@ end)
 
 lsp.setup()
 vim.o.winbar = "%{%v:lua.require'nvim-navic'.get_location()%}"
+
+-- `cmp` need to be setup after lsp-zero
+local cmp = require('cmp')
+local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_action = require('lsp-zero').cmp_action()
+cmp.setup({
+    mapping = {
+        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<CR>'] = cmp.mapping.confirm({select = true}),
+        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+        ['<C-b'] = cmp_action.luasnip_jump_backward()
+    }
+})

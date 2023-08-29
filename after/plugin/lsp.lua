@@ -31,9 +31,7 @@ navic.setup {
     }
 }
 
-local lsp = require('lsp-zero')
-
-lsp.preset('recommended')
+local lsp = require('lsp-zero').preset('minimal')
 
 lsp.setup()
 

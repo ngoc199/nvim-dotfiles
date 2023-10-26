@@ -79,4 +79,10 @@ return require('packer').startup(function(use)
         "SmiteshP/nvim-navic",
         requires = "neovim/nvim-lspconfig"
     }
+
+    -- markdown preview
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+    })
 end)

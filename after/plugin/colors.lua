@@ -7,4 +7,6 @@ require('github-theme').setup({
     }
 })
 
+require('lualine').setup()
+
 vim.cmd('colorscheme github_light')

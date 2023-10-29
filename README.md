@@ -17,11 +17,7 @@ Before using this Neovim configuration, these dependencies must be installed:
 
 ## Theme
 
-I use the [projekt0n/github-nvim-theme](https://github.com/projekt0n/github-nvim-theme) dark theme. It looks clean and comfortable for my eyes.
-
-One more reason I use dark mode.
-
-> Light attracts the bugs.
+I use the [NightFox Theme](https://github.com/EdenEast/nightfox.nvim) light theme `dayfox`. It looks clean and comfortable for my eyes.
 
 ## Plugins
 

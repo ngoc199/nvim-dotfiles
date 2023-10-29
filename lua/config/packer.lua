@@ -9,7 +9,7 @@ return require('packer').startup(function(use)
 	use('tpope/vim-commentary') -- Comment code
 	use('editorconfig/editorconfig-vim') -- Editor config
 
-	use('projekt0n/github-nvim-theme') -- Theme
+    use "EdenEast/nightfox.nvim" -- Theme
 
 	-- Debugging
 	use{

@@ -11,11 +11,6 @@ return require('packer').startup(function(use)
 
 	use('projekt0n/github-nvim-theme') -- Theme
 
-    use {
-      'nvim-lualine/lualine.nvim',
-      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
-    }
-
 	-- Debugging
 	use{
         'mfussenegger/nvim-dap',

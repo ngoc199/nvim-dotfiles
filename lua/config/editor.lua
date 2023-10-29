@@ -2,6 +2,7 @@ vim.opt.number = true -- show current line number
 vim.opt.relativenumber = true -- show relative number
 vim.opt.mouse = a -- enable mouse scrolling
 vim.opt.scrolloff = 8
+vim.opt.laststatus = 2 -- always show status line
 
 -- tab width
 vim.opt.tabstop = 4 

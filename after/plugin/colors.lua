@@ -1,12 +1,12 @@
 require('github-theme').setup({
+  options = {
+    hide_nc_statusline = false,
     styles = {
-        functions = "italic",
-    },
-    darken = {
-        sidebars = {"qf", "vista_kind", "terminal", "packer"},
+        functions = 'italic',
+        comments = 'italic',
+        keywords = 'bold',
+        types = 'italic,bold',
     }
+  }
 })
-
-require('lualine').setup()
-
 vim.cmd('colorscheme github_light')

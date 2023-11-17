@@ -6,7 +6,8 @@ require('neorg').setup {
                 workspaces = {
                     work = "~/Documents/notes/work",
                     home = "~/Documents/notes/home",
-                }
+                },
+                default_workspace = "work"
             }
         }
     }

@@ -46,8 +46,9 @@ if vim.fn.has('wsl') == 1 then
     })
 end
 
--- nertrw
-vim.g.netrw_liststyle = 0
+-- disable nertrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- performance tweaks
 vim.opt.cursorline = true

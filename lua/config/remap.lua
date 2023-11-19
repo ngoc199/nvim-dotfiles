@@ -13,8 +13,8 @@ vim.keymap.set("n", "<leader>q", ":bd<CR>")
 vim.keymap.set("n", "zz", ":w<CR>")
 vim.keymap.set("n", "zx", ":wq<CR>")
 
--- open netrw
-vim.keymap.set("n", "<F3>", ":Explore<CR>")
+-- open file tree view
+vim.keymap.set("n", "<F3>", ":NvimTreeToggle<CR>")
 
 -- shift line(s)
 vim.keymap.set("n", "<S-k>", ":m .-2<CR>")

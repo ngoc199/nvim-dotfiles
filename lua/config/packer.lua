@@ -9,6 +9,7 @@ return require('packer').startup(function(use)
 	use('tpope/vim-commentary') -- Comment code
 	use('editorconfig/editorconfig-vim') -- Editor config
     use("stevearc/aerial.nvim") -- Code outline
+    use("nvim-tree/nvim-tree.lua") -- File tree view
 
     use "EdenEast/nightfox.nvim" -- Theme
 

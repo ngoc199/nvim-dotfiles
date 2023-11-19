@@ -34,6 +34,7 @@ I use the [NightFox Theme](https://github.com/EdenEast/nightfox.nvim) light them
 | editorconfig/editorconfig-vim            | Editor Config                                      |
 | mhartington/formatter.nvim               | File Formatter                                     |
 | airblade/vim-gitgutter                   | Show `git diff` (changes) of a file                |
+| stevearc/aerial.nvim | Code outline |
 
 ## Hotkeys You Love To Know
 
@@ -74,6 +75,7 @@ Then try to use these hotkeys to make your life easier.
 | <leader>a  | vim.lsp.buf.code_action       | Open quick actions                           |
 | gn         | vim.diagnostic.goto_next      | Go to next diagnostic                        |
 | gb         | vim.diagnostic.goto_prev      | Go to previous diagnostic                    |
+| <leader>o  | <cmd>AerialToggle!<CR>        | Toggle code outline |
 
 ## Connect With Me
 

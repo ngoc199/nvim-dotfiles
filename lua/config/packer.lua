@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
 	use('cohama/lexima.vim') -- Auto close parenthenses
 	use('tpope/vim-commentary') -- Comment code
 	use('editorconfig/editorconfig-vim') -- Editor config
+    use("stevearc/aerial.nvim") -- Code outline
 
     use "EdenEast/nightfox.nvim" -- Theme
 

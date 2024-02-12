@@ -58,5 +58,10 @@ local day_time = {
         start_min = 0,
     }
 }
-local current_time = os.date("*t")
-set_colorscheme(current_time, day_time)
+
+vim.api.nvim_create_autocmd({"BufEnter", "BufWinEnter", "CursorHold"}, {
+    callback = function()
+        local current_time = os.date("*t")
+        set_colorscheme(current_time, day_time)
+    end
+})

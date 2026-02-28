@@ -1,6 +1,7 @@
 return {
 	"snacks.nvim",
 	opts = {
-		scroll = { enabled = false },
+		bigfile = { enabled = true },
+		dim = { enabled = true },
 	},
 }

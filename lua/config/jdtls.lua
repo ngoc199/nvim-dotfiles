@@ -297,7 +297,6 @@ local function setup_jdtls()
 
 	-- Create the configuration table for the start or attach function
 	local config = {
-		root_dir = root_dir,
 		settings = settings,
 		capabilities = capabilities,
 		init_options = init_options,

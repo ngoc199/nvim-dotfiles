@@ -1,0 +1,25 @@
+return {
+	"mason-org/mason.nvim",
+	opts = {
+		registries = {
+			"github:mason-org/mason-registry",
+		},
+		ensure_installed = {
+			"lua-language-server",
+			"xmlformatter",
+			"stylua",
+			"bicep-lsp",
+			"html-lsp",
+			"css-lsp",
+			"eslint-lsp",
+			"typescript-language-server",
+			"csharpier",
+			"prettier",
+			"json-lsp",
+			"yaml-language-server",
+			"markdown-oxide",
+			"jdtls",
+			"netcoredbg",
+		},
+	},
+}

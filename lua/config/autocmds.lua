@@ -46,3 +46,14 @@ local day_time = {
 --         set_colorscheme(current_time, day_time)
 --     end
 -- })
+
+-- Make background transparent on changing colorscheme
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "*",
+	callback = function()
+		local groups = { "Normal", "NormalNC", "NormalFloat", "FloatBorder", "SignColumn", "LineNr", "EndOfBuffer" }
+		for _, group in ipairs(groups) do
+			vim.api.nvim_set_hl(0, group, { bg = "none", ctermbg = "none" })
+		end
+	end,
+})

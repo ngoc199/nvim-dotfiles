@@ -1,21 +1,12 @@
 return {
 	{
 		"rcasia/neotest-java",
-		ft = "java",
-		dependencies = {
-			"mfussenegger/nvim-jdtls",
-			"mfussenegger/nvim-dap", -- for debugging (optional)
-			"rcarriga/nvim-dap-ui", -- recommended
-			"theHamsta/nvim-dap-virtual-text", -- recommended
-		},
 	},
 	{
 		"marilari88/neotest-vitest",
-		ft = { "ts", "js" },
 	},
 	{
 		"nsidorenco/neotest-vstest",
-		ft = "cs",
 	},
 	{
 		"nvim-neotest/neotest",
@@ -24,9 +15,6 @@ return {
 			"nvim-lua/plenary.nvim",
 			"antoinemadec/FixCursorHold.nvim",
 			"nvim-treesitter/nvim-treesitter",
-			"rcasia/neotest-java",
-			"marilari88/neotest-vitest",
-			"nsidorenco/neotest-vstest",
 		},
 		opts = {
 			adapters = {
@@ -41,5 +29,33 @@ return {
 				["neotest-vitest"] = {},
 			},
 		},
+	},
+	{
+		"mr-u0b0dy/crazy-coverage.nvim",
+		ft = { "cs", "fsharp" },
+		config = function()
+			local root_dir = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+			if vim.v.shell_error ~= 0 then
+				root_dir = vim.fn.getcwd()
+			end
+			local function get_coverage_dirs()
+				local abs_dirs = vim.fn.globpath(root_dir, "**/TestResults", true, true)
+				local rel_dirs = {}
+				for _, abs_path in ipairs(abs_dirs) do
+					local rel_path = abs_path:sub(#root_dir + 2)
+					table.insert(rel_dirs, rel_path)
+				end
+				local dirs = rel_dirs
+				table.insert(dirs, "TestResults")
+				table.insert(dirs, ".")
+				table.insert(dirs, "build/coverage")
+				table.insert(dirs, "coverage")
+
+				return dirs
+			end
+			require("crazy-coverage").setup({
+				coverage_dirs = get_coverage_dirs(),
+			})
+		end,
 	},
 }
